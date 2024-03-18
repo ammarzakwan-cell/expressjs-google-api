@@ -2,10 +2,10 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.static("public"));
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel");
+  res.render("index", { CLIENT_ID: process.env.GOOGLE_CLIENT_ID, API_KEY: process.env.GOOGLE_API_KEY });
 });
 
 app.listen(5000, () => {
