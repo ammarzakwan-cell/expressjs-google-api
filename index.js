@@ -5,6 +5,8 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
+  console.log("CLIENT_ID:", process.env.GOOGLE_CLIENT_ID);
+  console.log("API_KEY:", process.env.GOOGLE_API_KEY);
   res.render("index", { CLIENT_ID: process.env.GOOGLE_CLIENT_ID, API_KEY: process.env.GOOGLE_API_KEY });
 });
 
